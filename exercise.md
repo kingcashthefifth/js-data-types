@@ -18,60 +18,62 @@ What is the output of each of the expressions below?
 
 ```js
 typeof(15)
-// Prediction:
-// Actual:
+// Prediction: int
+// Actual: "number"
 
 typeof(5.5)
-// Prediction:
-// Actual:
+// Prediction: int
+// Actual: "number"
 
 typeof(NaN)
-// Prediction:
-// Actual:
+// Prediction: NaN
+// Actual: "number"
 
 typeof("hello")
-// Prediction:
-// Actual:
+// Prediction: string
+// Actual: "string"
 
 typeof(true)
-// Prediction:
-// Actual:
+// Prediction: boolean
+// Actual: Boolean
 
 typeof(1 != 2)
-// Prediction:
-// Actual:
+// Prediction: boolean
+// Actual: Boolean
 
 
 "hamburger" + "s"
-// Prediction:
-// Actual:
+// Prediction: "hamburgers"
+// Actual: "hamburgers"
 
 "hamburgers" - "s"
-// Prediction:
-// Actual:
+// Prediction: "hamburger"
+// Actual: NaN
 
 "1" + "3"
-// Prediction:
-// Actual:
+// Prediction: "13"
+// Actual: "13"
 
 "1" - "3"
-// Prediction:
-// Actual:
+// Prediction: ""
+// Actual: "-2"
 
 "johnny" + 5
-// Prediction:
-// Actual:
+// Prediction: johnny5
+// Actual: johnny5
 
 "johnny" - 5
-// Prediction:
-// Actual:
+// Prediction: error
+// Actual: NaN
 
 99 * "luftbaloons"
-// Prediction:
-// Actual:
+// Prediction: error
+// Actual: NaN
 ```
 
 What's going on in the second half of the previous question? Are there any "rules" we can pull from those examples?
+
+You usually get NaN when the result of a math operation is not real (e.g., dividing 0 by 0, multiplying strings together).
 
 ## Data Structures
 
@@ -81,11 +83,17 @@ What's going on in the second half of the previous question? Are there any "rule
 
 Javascript provides us with a number of native methods that allow us to interact with arrays. Find methods that do each of the following and provide an example...
 * Add an element to the back of an array.
+numbers.push()
 * Remove an element from the back of an array.
+numbers.pop()
 * Add an element to the front of an array.
+numbers.unshift()
 * Remove an element from the front of an array.
+numbers.shift()
 * Concatenates all the elements in an array into a string.
+numbers.join()
 * Separates the characters of a string into an array. This one is a string method.
+var a = numbers.split('')
 
 > This is a great exercise for practicing your "Google Fu"! If you need a starting point, check out [MDN's documentation page on arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
@@ -100,10 +108,11 @@ var numbers = [2, 4, 6, 8]
 numbers.pop()
 numbers.push(10)
 numbers.unshift(3)
+
 ```
 
 ```text
-Your answer goes here.
+numbers = [3, 2, 4, 6, 10]
 ```
 
 What is the return value of the below code sample? Come up with an answer yourself before testing it out in the console.
@@ -115,7 +124,7 @@ moreMorse.split(" ")
 ```
 
 ```text
-Your answer goes here.
+moreMorse = ["dot", "pause", "dot", "dash"]
 ```
 
 What will the contents of the below array be after the below code sample is executed? Come up with an answer yourself before testing it out in the console.
@@ -132,7 +141,7 @@ bands[1][3] = "Ringo"
 ```
 
 ```text
-Your answer goes here.
+var bands = [["Mick", "Keith", "Ronnie", "Charlie"], ["Paul", "John", "George", "Ringo"]]
 ```
 ### Objects
 ```
@@ -167,15 +176,19 @@ var phoneBook = {
 ```
 
 Write a line of code that accesses the phone number for Pam.
-
+phoneBook.Pam;
 Write a line of code that creates a new record for John at 435-567-1223.
-
+phoneBook.John = "435-567-1223";
 Write your own object and console.log that value.
+var obj = {
+	"Cash" : "12345678"
+};
 
+console.log(obj);
 Find out what `Object.keys(phoneBook)` does.
-
+It will list all the keys only in the object "phoneBook".
 Look up and use the `delete` keyword with phoneBook to delete a record.
-
+delete phoneBook.John;
 
 ## Booleans & Comparison Operators
 
@@ -211,7 +224,16 @@ You're a bouncer at a bar. Given an `age` variable, create a conditional that sa
 * If a patron is older than 75, print out `"Are you sure you want to be here?"`.
 
 ```js
-// Your answer goes here.
+var age = 78;
+if (age > 21 && age < 75) {
+    console.log("Come on in!");
+} else if (age >= 18 && age <= 21) {
+    console.log("Come on in (but no drinking)");
+} else if (age < 18) {
+    console.log("You're too young to be in here!");
+} else if (age > 75) {
+    console.log("Are you sure you want to be here?");
+};
 ```
 
 #### Further: 
